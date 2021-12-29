@@ -10,6 +10,6 @@ How to setup a new environment:
 
 ```
 git clone --bare git@github.com:emield12/dotfiles.git $HOME/dotfiles.git
-# We use -f which will override all local changes, make sure everything is backed up!!!
+# Add -f option if you want to override existing config files.
 git --git-dir=$HOME/dotfiles.git --work-tree=$HOME checkout
 ```
