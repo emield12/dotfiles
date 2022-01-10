@@ -183,6 +183,5 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
-source /home/emield/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [ -e /home/emield/.nix-profile/etc/profile.d/nix.sh ]; then . /home/emield/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
