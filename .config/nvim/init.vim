@@ -2,6 +2,7 @@ if exists('g:vscode')
     "Vscode extension config
 else
     "Ordinary config
+
 "######################
 "### GENERAL CONFIG ###
 "######################
@@ -459,4 +460,3 @@ hi tkTag ctermfg=175 guifg=#d3869B
 
 " Endif for vscode
 endif
-
