@@ -81,7 +81,7 @@ plugins=(
     git
     zsh-autosuggestions # greyed out autocomplete suggestions while typing
     web-search # Do web search from the terminal
-    copydir # copy current directory to clipboard
+    copypath # copy current directory to clipboard
     copyfile # copy contents of a file
     copybuffer # copy the currently typed text in command line
     dirhistory # Move up and down directories wiht alt+left/right/up/down
@@ -185,3 +185,6 @@ _fzf_comprun() {
 }
 
 if [ -e /home/emield/.nix-profile/etc/profile.d/nix.sh ]; then . /home/emield/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mcli
