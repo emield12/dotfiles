@@ -14,8 +14,9 @@ set hlsearch                " highlight search
 set incsearch               " incremental search
 set tabstop=4               " number of columns occupied by a tab set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
+set smarttab
+set smartindent
 set shiftwidth=4            " width for autoindents
-set noswapfile  
 set scrolloff=8
 set autoindent              " indent a new line the same amount as the line just typed
 set number relativenumber   " add (rlative) line numbers
@@ -30,7 +31,6 @@ filetype plugin on
 set ttyfast                 " Speed up scrolling in Vim
 " set spell                 " enable spell check (may need to download
 " language package)
-" set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 let mapleader = " "          " Leader key 
 
@@ -38,13 +38,20 @@ let mapleader = " "          " Leader key
 set splitright
 set splitbelow
 
+" Automatic sourcing of init.vim file when written
+" if has("autocmd")
+"     autocmd bufwritepost init.vim source $MYVIMRC
+" endif
+nmap <leader>v :edit $MYVIMRC<CR>
+
+
 "###############
 "### PLUGINS ###
 "############### 
 
 call plug#begin("~/.vim/plugged")
  " Cosmetic stuff
- Plug 'dracula/vim' " duacula theme for VIM
+ Plug 'dracula/vim' " dracula theme for VIM
  Plug 'vim-python/python-syntax'
  Plug 'kyazdani42/nvim-web-devicons'
  Plug 'itchyny/lightline.vim' " Line below editor with vi edit mode
@@ -73,7 +80,7 @@ call plug#begin("~/.vim/plugged")
  " Plug 'untitled-ai/jupyter_ascending.vim' 
  " Plug 'jupyter-vim/jupyter-vim'
  " Plug 'fiatjaf/neuron.vim'
- Plug 'renerocksai/calendar-vim'
+ " Plug 'renerocksai/calendar-vim'
  Plug 'renerocksai/telekasten.nvim'
 call plug#end()
 
@@ -174,8 +181,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format)
+nmap <leader>f  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -240,21 +251,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> ,a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> ,e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> ,c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> ,o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> ,s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> ,j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> ,k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>" coc extensions
+nnoremap <silent><nowait> ,p  :<C-u>CocListResume<CR>" coc extensions
 "
 let g:coc_global_extensions = [
             \ 'coc-snippets',
@@ -292,8 +303,6 @@ let g:magma_automatically_open_output = v:false
 "### python general config ###
 "#############################
 let g:python3_host_prog="~/venvs/neovim/bin/python"
-autocmd FileType python map <buffer> <c-e> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <c-e> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
 
 " enable python-syntax highlighting
 let g:python_highlight_all = 1
