@@ -313,8 +313,8 @@ require('telekasten').setup({
     --                               and thus the telekasten syntax will not be loaded either
     auto_set_filetype = true,
 
-    dailies      = home .. '/' .. 'Daily notes',
-    weeklies     = home .. '/' .. 'weekly',
+    dailies      = home .. '/' .. '_inbox' .. '/' .. 'daily',
+    weeklies     = home .. '/' .. '_inbox' .. '/' .. 'weekly',
     templates    = home .. '/' .. 'Templates',
 
     -- image subdir for pasting
