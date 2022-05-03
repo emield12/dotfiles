@@ -123,7 +123,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cb="xclip -selection c"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
+alias dtf="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
 alias n="/usr/bin/nvim"
 
 # Lines configured by zsh-newuser-install
