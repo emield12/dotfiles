@@ -76,6 +76,7 @@ call plug#begin("~/.vim/plugged")
  " IDE feature 
  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code autocomplete
  " Jupyter stuff
+ Plug 'goerz/jupytext.vim'
  " Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
  " Plug 'untitled-ai/jupyter_ascending.vim' 
  " Plug 'jupyter-vim/jupyter-vim'
@@ -274,7 +275,6 @@ let g:coc_global_extensions = [
             \ 'coc-yaml',
             \ 'coc-tabnine',
             \ ]
-
 "########################
 "### Telescope config ###
 "########################
@@ -324,7 +324,7 @@ require('telekasten').setup({
 
     dailies      = home .. '/' .. '_inbox' .. '/' .. 'daily',
     weeklies     = home .. '/' .. '_inbox' .. '/' .. 'weekly',
-    templates    = home .. '/' .. 'Templates',
+    templates    = home .. '/' .. 'templates',
 
     -- image subdir for pasting
     -- subdir name
