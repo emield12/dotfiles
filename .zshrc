@@ -125,6 +125,7 @@ fi
 alias cb="xclip -selection c"
 alias dtf="/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
 alias n="/usr/bin/nvim"
+alias zettl="n ~/docs/PhD/obsidian_vault/obsi_vault"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
